@@ -72,8 +72,6 @@
     3, other
 ```
 
-
-
 ### yarn queue规范
 ```
     按 部门.业务组 划分队列
@@ -95,6 +93,19 @@
     worker数目最好与parition数目相等
 
 ```
+
+### 收集服务( Canal,Flume ) 集群划分
+```
+    离线
+    实时
+```
+
+### hbase集群划分
+```
+    大业务单独集群
+    公共/其他业务通过regionserver group隔离
+```
+
 ### data warehouse 规范
 ```
     数仓分层和数据质量管理很重要

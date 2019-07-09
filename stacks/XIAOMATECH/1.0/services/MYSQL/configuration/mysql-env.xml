@@ -322,7 +322,7 @@ tokudb_enable_fast_upsert = 1
 tokudb_check_jemalloc=0
 
 rocksdb_max_open_files=-1
-rocksdb_max_background_jobs=8
+rocksdb_max_background_jobs=16
 rocksdb_max_total_wal_size=4G
 rocksdb_block_size=16384
 rocksdb_table_cache_numshardbits=6
