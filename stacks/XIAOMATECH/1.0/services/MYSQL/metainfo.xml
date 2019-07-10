@@ -53,9 +53,11 @@
                 <osSpecific>
                     <osFamily>any</osFamily>
                     <packages>
+                        <!--
                         <package>
                             <name>percona-server-tokudb</name>
                         </package>
+                        -->
                         <package>
                             <name>percona-server-rocksdb</name>
                         </package>

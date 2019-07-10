@@ -252,6 +252,16 @@ wget https://repo1.maven.org/maven2/io/prestosql/presto-server/307/presto-server
 wget https://repo1.maven.org/maven2/io/prestosql/presto-cli/307/presto-cli-307-executable.jar -P ./
 wget http://mirrors.aliyun.com/apache/tomcat/tomcat-8/v8.5.38/bin/apache-tomcat-8.5.38.tar.gz -P ./
 
+cd $repo_dir_base/tidb
+wget http://download.pingcap.org/tidb-enterprise-tools-latest-linux-amd64.tar.gz -P ./
+tar -zxvf tidb-enterprise-tools-latest-linux-amd64.tar.gz && mv tidb-enterprise-tools-latest-linux-amd64/bin/* . && rm -rf tidb-enterprise-tools-latest-linux-amd64.tar.gz
+wget http://download.pingcap.org/tidb-latest-linux-amd64.tar.gz -P ./
+tar -zxvf tidb-latest-linux-amd64.tar.gz && mv tidb-latest-linux-amd64/bin/* . &&  rm -rf tidb-latest-linux-amd64.tar.gz
+wget http://download.pingcap.org/tidb-binlog-kafka-linux-amd64.tar.gz -P ./
+tar -zxvf tidb-binlog-kafka-linux-amd64.tar.gz && mv tidb-binlog-kafka-linux-amd64/bin/* . && rm -rf tidb-binlog-kafka-linux-amd64.tar.gz
+rm -rf tidb-*amd64
+
+cd $repo_dir_base/
 wget http://mirrors.aliyun.com/apache/pulsar/pulsar-2.4.0/apache-pulsar-2.4.0-bin.tar.gz -P ./
 mv apache-pulsar-2.4.0-bin.tar.gz apache-pulsar-2.4.0.tar.gz
 
