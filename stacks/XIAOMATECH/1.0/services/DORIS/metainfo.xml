@@ -3,14 +3,14 @@
     <schemaVersion>2.0</schemaVersion>
     <services>
         <service>
-            <name>PALO</name>
-            <displayName>Baidu Palo</displayName>
+            <name>DORIS</name>
+            <displayName>Apache Doris(Baidu DORIS)</displayName>
             <comment>OLAP</comment>
-            <version>0.8.2</version>
+            <version>0.11.0</version>
             <components>
                 <component>
-                    <name>PALOFE</name>
-                    <displayName>Palo FE</displayName>
+                    <name>DORISFE</name>
+                    <displayName>DORIS FE</displayName>
                     <category>MASTER</category>
                     <cardinality>1+</cardinality>
                     <commandScript>
@@ -20,8 +20,8 @@
                     </commandScript>
                 </component>
                 <component>
-                    <name>PALOBE</name>
-                    <displayName>Palo BE</displayName>
+                    <name>DORISBE</name>
+                    <displayName>DORIS BE</displayName>
                     <category>SLAVE</category>
                     <cardinality>1+</cardinality>
                     <commandScript>
@@ -30,13 +30,13 @@
                         <timeout>600</timeout>
                     </commandScript>
                     <bulkCommands>
-                        <displayName>Palo BEs</displayName>
-                        <masterComponent>PALOBE</masterComponent>
+                        <displayName>DORIS BEs</displayName>
+                        <masterComponent>DORISBE</masterComponent>
                     </bulkCommands>
                 </component>
                 <component>
-                    <name>PALOHDFSBROKER</name>
-                    <displayName>Palo HDFS Broker</displayName>
+                    <name>DORISHDFSBROKER</name>
+                    <displayName>DORIS HDFS Broker</displayName>
                     <category>SLAVE</category>
                     <cardinality>0+</cardinality>
                     <commandScript>
@@ -52,7 +52,7 @@
                 <timeout>300</timeout>
             </commandScript>
             <configuration-dependencies>
-                <config-type>palo-env</config-type>
+                <config-type>doris-env</config-type>
             </configuration-dependencies>
             <restartRequiredAfterChange>true</restartRequiredAfterChange>
             <quickLinksConfigurations>

@@ -36,8 +36,6 @@ from resource_management.libraries.script import Script
 
 from resource_management.libraries.functions import check_process_status
 
-LEGACY_HIVE_SERVER_CONF = "/etc/hive"
-
 
 class HiveMetastore(Script):
     def install(self, env):
@@ -45,7 +43,7 @@ class HiveMetastore(Script):
         self.install_packages(env)
         install_hive()
 
-    def start(self, env, upgrade_type=None):
+    def start(self, env):
         import params
         env.set_params(params)
         install_hive()
@@ -65,7 +63,7 @@ class HiveMetastore(Script):
         # below function call is used for cluster depolyed in cloud env to create ranger hive service in ranger admin.
         setup_ranger_hive_metastore_service()
 
-    def stop(self, env, upgrade_type=None):
+    def stop(self, env):
         import params
         env.set_params(params)
         hive_service('metastore', action='stop')

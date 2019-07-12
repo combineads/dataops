@@ -44,13 +44,25 @@
                 </component>
 
                 <component>
+                    <name>HIVE_METASTORE_FEDERATION</name>
+                    <displayName>Hive Metastore Federation(waggle-dance)</displayName>
+                    <category>SLAVE</category>
+                    <cardinality>0+</cardinality>
+                    <reassignAllowed>true</reassignAllowed>
+                    <commandScript>
+                        <script>scripts/hive_metastore_federation.py</script>
+                        <scriptType>PYTHON</scriptType>
+                        <timeout>1200</timeout>
+                    </commandScript>
+                </component>
+
+                <component>
                     <name>HIVE_SERVER</name>
                     <displayName>HiveServer2</displayName>
                     <category>MASTER</category>
                     <cardinality>1+</cardinality>
                     <versionAdvertised>true</versionAdvertised>
                     <reassignAllowed>true</reassignAllowed>
-                    <clientsToUpdateConfigs></clientsToUpdateConfigs>
                     <dependencies>
                         <dependency>
                             <name>ZOOKEEPER/ZOOKEEPER_SERVER</name>
@@ -251,7 +263,7 @@
                         <config-type>hive-site</config-type>
                     </configuration-dependencies>
                 </component>
-
+                <!--
                 <component>
                     <name>WEBHCAT_SERVER</name>
                     <displayName>WebHCat Server</displayName>
@@ -317,6 +329,7 @@
                         <config-type>hive-site</config-type>
                     </configuration-dependencies>
                 </component>
+               -->
             </components>
 
             <commandScript>

@@ -953,3 +953,6 @@ hcat_hdfs_user_dir = format("/user/{webhcat_user}")
 hcat_hdfs_user_mode = 0755
 webhcat_hdfs_user_dir = format("/user/{webhcat_user}")
 webhcat_hdfs_user_mode = 0755
+
+waggle_dance_federation_content = config['configurations']['hive-env']['waggle_dance_federation_content']
+waggle_dance_server_content = config['configurations']['hive-env']['waggle_dance_server_content']

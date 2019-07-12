@@ -456,4 +456,39 @@ fi
         </value-attributes>
         <on-ambari-upgrade add="true"/>
     </property>
+
+    <property>
+        <name>waggle_dance_server_content</name>
+        <display-name>waggle_dance_server template</display-name>
+        <description>waggle_dance_server_content</description>
+        <value><![CDATA[
+verbose: true
+        ]]>
+        </value>
+        <value-attributes>
+            <type>content</type>
+        </value-attributes>
+        <on-ambari-upgrade add="false"/>
+    </property>
+
+    <property>
+        <name>waggle_dance_federation_content</name>
+        <display-name>waggle_dance_federation template</display-name>
+        <description>waggle_dance_federation_content</description>
+        <value><![CDATA[
+primary-meta-store:
+  database-prefix: ''
+  name: local
+  remote-meta-store-uris: thrift://localhost:9083
+federated-meta-stores:
+- remote-meta-store-uris: thrift://10.0.0.1:9083
+  database-prefix: dw_
+  name: dw
+        ]]>
+        </value>
+        <value-attributes>
+            <type>content</type>
+        </value-attributes>
+        <on-ambari-upgrade add="false"/>
+    </property>
 </configuration>
