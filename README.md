@@ -6,14 +6,14 @@
 - [经验之谈](#经验之谈)
 - [需要怎么样的服务器](#需要怎么样的服务器)
 - [推荐的hdfs部署方式](#推荐的hdfs部署方式)
-- [hdfs_nameservice划分](#[hdfs_nameservice划分)
+- [hdfs_nameservice划分](#hdfs_nameservice划分)
 - [hdfs目录规范](#hdfs目录规范)
 - [zookeeper集群划分](#zookeeper集群划分)
 - [yarn集群划分](#yarn集群划分)
 - [yarn_queue规范](#yarn_queue规范)
 - [kafka集群划分](#kafka集群划分)
 - [kafka规范](#kafka规范)
-- [收集服务Canal/Flume集群划分](#收集服务Canal/Flume集群划分)
+- [收集服务Canal/Flume集群划分](#收集服务集群划分)
 - [hbase集群划分](#hbase集群划分)
 - [data_warehouse规范](#data_warehouse规范)
 - [业务打log规范](#业务打log规范)
@@ -139,7 +139,7 @@
 
 ```
 
-### 收集服务Canal/Flume集群划分
+### 收集服务集群划分
 ```
     离线
     实时
