@@ -1,5 +1,50 @@
 # 大数据
 
+# 目录
+
+- [此系统已实现的功能](#此系统已实现的功能)
+- [经验之谈](#经验之谈)
+- [需要怎么样的服务器](#需要怎么样的服务器)
+- [推荐的hdfs部署方式](#推荐的hdfs部署方式)
+- [hdfs nameservice划分](#[hdfs nameservice划分)
+- [hdfs 目录规范](#hdfs 目录规范)
+- [zookeeper集群划分](#zookeeper集群划分)
+- [yarn 集群划分](#yarn 集群划分)
+- [yarn queue规范](#yarn queue规范)
+- [kafka 集群划分](#kafka 集群划分)
+- [kafka 规范](#kafka 规范)
+- [收集服务 Canal/Flume 集群划分](#收集服务 Canal/Flume 集群划分)
+- [hbase集群划分](#hbase集群划分)
+- [data warehouse 规范](#data warehouse 规范)
+- [业务打 log 规范](#业务打 log 规范)
+- [集群划分建议原则](#集群划分建议原则)
+- [master节点规划](#master节点规划)
+- [系统分区和挂载](#系统分区和挂载)
+- [元数据在哪几个地方](#元数据在哪几个地方)
+- [不错的patch](#不错的patch)
+- [小文件合并](#小文件合并)
+- [监控告警](#监控告警)
+- [网络平面](#网络平面)
+- [集群组网](#集群组网)
+- [主机网卡配置](#主机网卡配置)
+- [典型业务调优](#典型业务调优)
+- [组件安装部署的前提](#组件安装部署的前提)
+- [组件安装顺序](#组件安装顺序)
+- [安装步骤](#安装步骤)
+- [自动部署和扩容大数据组件](#自动部署和扩容大数据组件)
+- [组件日志管理与扩容步骤](#组件日志管理与扩容步骤)
+- [hdfs扩容](#hdfs扩容)
+- [namenode ldap/kdc keytab 备份与恢复](#namenode ldap/kdc keytab 备份与恢复)
+- [namenode 都是standy/active怎么办](#namenode 都是standy/active怎么办)
+- [安全组件ranger原理、注意项、插件开启](#安全组件ranger原理、注意项、插件开启)
+- [kerberos开启、jce验证keytab缺失怎么处理](#kerberos开启、jce验证keytab缺失怎么处理)
+- [组件升级](#组件升级)
+- [组件监控告警](#组件监控告警)
+- [下载服务器的目录](#下载服务器的目录)
+- [ambari service开发步骤](#ambari service开发步骤)
+- [大数据参考资料](#大数据参考资料)
+
+
 ### 此系统已实现的功能
 ```
 实现了常用的功能
@@ -94,7 +139,7 @@
 
 ```
 
-### 收集服务( Canal,Flume ) 集群划分
+### 收集服务 Canal/Flume 集群划分
 ```
     离线
     实时
@@ -280,13 +325,13 @@ parquet:  hadoop jar ./parquet-tools-1.11.0.jar merge -b -l 512 /input_directory
     接入/汇聚交换机支持三层交换    
 ```
         
-### 主机端口配置
+### 主机网卡配置
 ```
     每个节点的两个端口配成bond，分别接入两个接入交换机 不堆叠 无TRUNK Bond模式：mode= 6 
     采用自适应负载策略(balance-alb-rlb,Adaptive load balancing)。
     网络流量bond的两个子端口上均衡分配，汇聚流量较大
 ```
-### master节点规划，推荐11台master 具体规划如下:
+### master节点规划
 ```
     主节点相关角色放到不同的机架上，Zookeeper，JournalNode节点放到不同机架
     nodemanager 一般只跟datanode混部, datanode可跟nodemanager/regionserver/kafka brocker/storm supervisor/solr/es/presto worker等 混部
