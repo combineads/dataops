@@ -9,7 +9,7 @@
 - [hdfs_nameservice划分](#[hdfs_nameservice划分)
 - [hdfs目录规范](#hdfs目录规范)
 - [zookeeper集群划分](#zookeeper集群划分)
-- [yarn集群划分](#yarn 集群划分)
+- [yarn集群划分](#yarn集群划分)
 - [yarn_queue规范](#yarn_queue规范)
 - [kafka集群划分](#kafka集群划分)
 - [kafka规范](#kafka规范)
