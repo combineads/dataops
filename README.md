@@ -6,17 +6,17 @@
 - [经验之谈](#经验之谈)
 - [需要怎么样的服务器](#需要怎么样的服务器)
 - [推荐的hdfs部署方式](#推荐的hdfs部署方式)
-- [hdfs nameservice划分](#[hdfs nameservice划分)
-- [hdfs 目录规范](#hdfs 目录规范)
+- [hdfs_nameservice划分](#[hdfs_nameservice划分)
+- [hdfs目录规范](#hdfs目录规范)
 - [zookeeper集群划分](#zookeeper集群划分)
-- [yarn 集群划分](#yarn 集群划分)
-- [yarn queue规范](#yarn queue规范)
-- [kafka 集群划分](#kafka 集群划分)
-- [kafka 规范](#kafka 规范)
-- [收集服务 Canal/Flume 集群划分](#收集服务 Canal/Flume 集群划分)
+- [yarn集群划分](#yarn 集群划分)
+- [yarn_queue规范](#yarn_queue规范)
+- [kafka集群划分](#kafka集群划分)
+- [kafka规范](#kafka规范)
+- [收集服务Canal/Flume集群划分](#收集服务Canal/Flume集群划分)
 - [hbase集群划分](#hbase集群划分)
-- [data warehouse 规范](#data warehouse 规范)
-- [业务打 log 规范](#业务打 log 规范)
+- [data_warehouse规范](#data_warehouse规范)
+- [业务打log规范](#业务打log规范)
 - [集群划分建议原则](#集群划分建议原则)
 - [master节点规划](#master节点规划)
 - [系统分区和挂载](#系统分区和挂载)
@@ -34,14 +34,14 @@
 - [自动部署和扩容大数据组件](#自动部署和扩容大数据组件)
 - [组件日志管理与扩容步骤](#组件日志管理与扩容步骤)
 - [hdfs扩容](#hdfs扩容)
-- [namenode ldap/kdc keytab 备份与恢复](#namenode ldap/kdc keytab 备份与恢复)
-- [namenode 都是standy/active怎么办](#namenode 都是standy/active怎么办)
-- [安全组件ranger原理、注意项、插件开启](#安全组件ranger原理、注意项、插件开启)
-- [kerberos开启、jce验证keytab缺失怎么处理](#kerberos开启、jce验证keytab缺失怎么处理)
+- [namenode/ldap/kdc/keytab备份与恢复](#namenode/ldap/kdc/keytab备份与恢复)
+- [namenode都是standy/active怎么办](#namenode都是standy/active怎么办)
+- [安全组件ranger原理/注意项/插件开启](#安全组件ranger原理/注意项/插件开启)
+- [kerberos开启/jce验证keytab缺失怎么处理](#kerberos开启/jce验证keytab缺失怎么处理)
 - [组件升级](#组件升级)
 - [组件监控告警](#组件监控告警)
 - [下载服务器的目录](#下载服务器的目录)
-- [ambari service开发步骤](#ambari service开发步骤)
+- [ambari_service开发步骤](#ambari_service开发步骤)
 - [大数据参考资料](#大数据参考资料)
 
 
@@ -78,7 +78,7 @@
   ![hdfs](img/hdfs.png)  
 
 
-### hdfs nameservice划分
+### hdfs_nameservice划分
 ```
     划分多个集群，通过federation共享共通数据
     1 yarn logs,tmp 
@@ -87,7 +87,7 @@
     4 streaming
 ```
 
-### hdfs 目录规范
+### hdfs目录规范
 ```
     按业务或者组来划分目录
     以下是推荐的根目录 ，然后在此根目录的基础上按业务或组来划分
@@ -109,7 +109,7 @@
     3 other
 ```
 
-### yarn 集群划分
+### yarn集群划分
 ```
     划分多个集群 提高稳定性，后续可通过yarn federation统一资源调度
     1, streaming
@@ -117,13 +117,13 @@
     3, other
 ```
 
-### yarn queue规范
+### yarn_queue规范
 ```
     按 部门.业务组 划分队列
     比如 department.business
 ```
 
-### kafka 集群划分
+### kafka集群划分
 ```
     划分多个集群 提高稳定性
     1, 用户行为上报/nginx logs
@@ -131,7 +131,7 @@
     3, other
 ```
 
-### kafka 规范
+### kafka规范
 ```
     Kafka中Topic命名规范: department_business_feature
     partition数目为磁盘数目的4倍（也就是说每个盘上放4个partition）时候kafka的性能最优
@@ -139,7 +139,7 @@
 
 ```
 
-### 收集服务 Canal/Flume 集群划分
+### 收集服务Canal/Flume集群划分
 ```
     离线
     实时
@@ -151,7 +151,7 @@
     公共/其他业务通过regionserver group隔离
 ```
 
-### data warehouse 规范
+### data_warehouse规范
 ```
     数仓分层和数据质量管理很重要
     数据分层不好的话 导致的直接结果是浪费计算资源和存储资源
@@ -211,7 +211,7 @@
 ```
 
 
-### 业务打 log 规范
+### 业务打log规范
 ```
     http://blog.jobbole.com/56574/
     https://zhuanlan.zhihu.com/p/27363484
@@ -351,7 +351,7 @@ parquet:  hadoop jar ./parquet-tools-1.11.0.jar merge -b -l 512 /input_directory
 ```
     
     
-### namenode 都是standy/active怎么办
+### namenode都是standy/active怎么办
 ```
     Stop the ZKFC
     
@@ -429,7 +429,7 @@ blueprint介绍
 在ambari页面 刷新namenode下的配置(做了机架感知 没刷新的时候是默认/default-rack ,datanode加不进集群)
 ```
  
-### namenode ,ldap/kdc ,keytab 备份与恢复
+### namenode/ldap/kdc/keytab备份与恢复
  ```
 namenode 元数据(fsimage)备份与恢复
     备份在/data/backup/namenode 。备份周期：每天凌晨一点备份 全备份,保留3天 。
@@ -449,7 +449,7 @@ keytab 备份与恢复
     恢复的时候注意保留文件权限 使用 cp -rpf /data/backup/keytab/时间/keytabs/* /etc/security/keytabs/
  ```
 
-### 安全组件ranger原理、注意项、插件开启
+### 安全组件ranger原理/注意项/插件开启
 ```
 解决的问题
     hdfs,yarn,hive,spark,hbase,storm,kafka,atlas,solr等的统一权限管控
@@ -472,7 +472,7 @@ keytab 备份与恢复
 
 ```
 
-### kerberos开启、jce验证keytab缺失怎么处理
+### kerberos开启/jce验证keytab缺失怎么处理
 ```
 介绍
     kerberos是一个安全交互协议
@@ -500,7 +500,7 @@ keytab缺失处理
     3 升级完成
 ```
 
-#### ambari service开发步骤
+#### ambari_service开发步骤
 ```
    1 了解对应的service的构成,基本原则是一个component管一类守护进程,有多少类守护进程就有多少个component
    2 复制示例 services\EXAMPLE 目录
