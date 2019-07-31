@@ -1115,4 +1115,16 @@
           Whether to use meta table replicas or not. Default is false.
         </description>
     </property>
+    <property>
+        <name>hbase.wal.regiongrouping.numgroups</name>
+        <value>4</value>
+    </property>
+    <property>
+        <name>hbase.wal.regiongrouping.strategy</name>
+        <value>bounded</value>
+    </property>
+    <property>
+        <name>hbase.wal.storage.policy</name>
+        <value>ALL_SSD</value>
+    </property>
 </configuration>
