@@ -1011,5 +1011,10 @@
         <name>hbase.procedure.regionserver.classes</name>
         <value>org.apache.hadoop.hbase.backup.regionserver.LogRollRegionServerProcedureManager</value>
     </property>
-
+    
+    <property>
+        <name>hbase.regionserver.throughput.controller</name>
+        <value>org.apache.hadoop.hbase.regionserver.compactions.PressureAwareCompactionThroughputController</value>
+    </property>
+   
 </configuration>
