@@ -918,7 +918,15 @@
             <type>boolean</type>
         </value-attributes>
     </property>
-
+ 
+    <property>
+        <name>hbase.bucketcache.combinedcache.enabled</name>
+        <value>true</value>
+        <value-attributes>
+            <type>boolean</type>
+        </value-attributes>
+    </property>
+    
     <property>
         <name>phoenix.schema.isNamespaceMappingEnabled</name>
         <value>true</value>
