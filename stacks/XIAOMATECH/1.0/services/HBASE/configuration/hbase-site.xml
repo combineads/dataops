@@ -456,7 +456,7 @@
     </property>
     <property>
         <name>hbase.coprocessor.master.classes</name>
-        <value>org.apache.hadoop.hbase.rsgroup.RSGroupAdminEndpoint</value>
+        <value>org.apache.hadoop.hbase.rsgroup.RSGroupAdminEndpoint,org.apache.phoenix.hbase.index.master.IndexMasterObserver</value>
         <description>A comma-separated list of
             org.apache.hadoop.hbase.coprocessor.MasterObserver coprocessors that are
             loaded by default on the active HMaster process. For any implemented
@@ -693,7 +693,7 @@
     </property>
     <property>
         <name>hbase.region.server.rpc.scheduler.factory.class</name>
-        <value/>
+        <value>org.apache.hadoop.hbase.ipc.PhoenixRpcSchedulerFactory</value>
         <value-attributes>
             <empty-value-valid>true</empty-value-valid>
         </value-attributes>
@@ -707,7 +707,7 @@
     </property>
     <property>
         <name>hbase.rpc.controllerfactory.class</name>
-        <value/>
+        <value>org.apache.hadoop.hbase.ipc.controller.ServerRpcControllerFactory</value>
         <value-attributes>
             <empty-value-valid>true</empty-value-valid>
         </value-attributes>
@@ -718,6 +718,10 @@
             </property>
         </depends-on>
         <on-ambari-upgrade add="false"/>
+    </property>
+    <property>
+      <name>hbase.coprocessor.regionserver.classes</name>
+      <value>org.apache.hadoop.hbase.regionserver.LocalIndexMerger</value> 
     </property>
     <property>
         <name>phoenix.functions.allowUserDefinedFunctions</name>
