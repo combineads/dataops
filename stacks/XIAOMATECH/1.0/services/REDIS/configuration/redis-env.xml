@@ -73,6 +73,9 @@ slowlog-max-len 128
 loglevel notice
 lua-time-limit 5000
 
+io-threads 16
+io-threads-do-reads yes
+
 #loadmodule /usr/lib64/redis/modules/redisgraph.so
 #loadmodule /usr/lib64/redis/modules/redisearch.so
 #loadmodule /usr/lib64/redis/modules/rebloom.so
