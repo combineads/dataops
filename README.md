@@ -161,6 +161,12 @@
     https://blog.csdn.net/zhaodedong/article/details/85293955
     https://blog.csdn.net/zhaodedong/article/details/73385647
     http://tech.weli.cn/2017/12/29/dataware-intro/
+    
+    参考阿里的数仓命名规范:
+        ods层 命名规则：ods_{源系统类型}_{源系统表名}_[{刷新周期标识}{增量全量标识}] 统一设备纵表-实时（DataHub）：ods_dcs_prd_mc_point_r 统一设备纵表-离线（MaxCompute）：ods_dcs_prd_mc_point_di
+        dws层 命名规则：dws_{一级主题域}_{二级主题域}_{数据粒度}_{业务名称}_{统计周期} 例：转炉炼钢钢包粒度最近1天汇总表 dws_prd_sm_ladle_bof_1d  注：根据需要业务名称可细化为多个的组合 对于刷新周期标识和增量全量标识在dws层不做强制要求，默认不需添加
+        dwd层 命名规则：dwd_{一级主题域}_{二级主题域}_{业务名称}_{刷新周期标识}{增量全量标识}  例：转炉炼钢明细小时增量表 dwd_prd_sm_bof_hi 注：根据需要业务名称可细化为多个的组合
+
 ```
 ![datawarehouse](img/dw.jpg)
 ![datawarehouse0](img/dw0.jpg)
