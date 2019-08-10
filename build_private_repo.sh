@@ -9,12 +9,12 @@ cd $repo_dir_base/7
 echo -ne '''
 [Confluent.dist]
 name=Confluent repository (dist)
-baseurl=https://packages.confluent.io/rpm/5.2/7
+baseurl=https://packages.confluent.io/rpm/5.3/7
 enabled=1
 
 [Confluent]
 name=Confluent repository
-baseurl=https://packages.confluent.io/rpm/5.2
+baseurl=https://packages.confluent.io/rpm/5.3
 enabled=1
 
 [mysql57]

@@ -7,6 +7,8 @@ import os
 
 config = Script.get_config()
 
+download_url = config['configurations']['pulsar-env']['download_url']
+
 pulsar_user = config['configurations']['pulsar-env']['pulsar_user']
 
 hostname = config['agentLevelParams']['hostname']

@@ -1,6 +1,13 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <configuration>
+
+    <property require-input="true">
+        <name>download_url</name>
+        <value>http://assets.example.com/apache-pulsar-2.4.0-bin.tar.gz</value>
+        <description>download url</description>
+    </property>
+
     <property>
         <name>pulsar_user</name>
         <value>pulsar</value>
