@@ -274,6 +274,13 @@ validate_password_length = 8
 validate-password=FORCE
 
 
+#audit log
+audit_log_format=JSON
+audit_log_policy=ALL
+audit_log_file=/var/log/mysql/audit.log
+audit_log_rotate_on_size=1024M
+audit_log_rotations=10
+
 # new innodb setting #
 loose_innodb_numa_interleave=1
 innodb_buffer_pool_dump_pct = 40
